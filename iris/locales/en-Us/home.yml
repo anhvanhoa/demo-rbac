@@ -1,0 +1,16 @@
+Vars:
+    - Minutes:
+          one: 'minute'
+          other: 'minutes'
+    - Houses:
+          one: 'house'
+          other: 'houses'
+
+# Using variables in raw string
+YouLate: 'You are %[1]d ${Minutes} late.'
+# [x] is the argument position,
+# variables always have priority other fmt-style arguments,
+# that's why we see [1] for houses and [2] for the string argument.
+HouseCount: '%[2]s has %[1]d ${Houses}.'
+
+Title: 'Welcome to Anh Van Hoa'

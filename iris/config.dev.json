@@ -1,0 +1,30 @@
+{
+    "port": ":8000",
+    "host": "localhost:8000",
+    "allowed_origins": [
+        "localhost:3000",
+        "localhost:9000",
+        "localhost:8000"
+    ],
+    "database": {
+        "user": "postgres",
+        "password": "123",
+        "database": "postgres",
+        "address": "localhost:5432"
+    },
+    "redis": {
+        "network": "tcp",
+        "addr": "localhost:6379",
+        "password": "",
+        "database": "",
+        "max_idle": 0,
+        "max_active": 0,
+        "idle_timeout": 5,
+        "prefix": ""
+    },
+    "authenticate": {
+        "max_access_failed": 5,
+        "lockout_in_minutes": 10,
+        "black_list_token_in_days": -10
+    }
+}

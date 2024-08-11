@@ -1,0 +1,26 @@
+package routes
+
+import (
+	"app/controllers/auth"
+	"net/http"
+
+	aroutes "github.com/anhvanhoa/lib/routes"
+	"github.com/kataras/iris/v12"
+)
+
+var authPaths map[string]string = map[string]string{
+	"login":  "/auth/login",
+	"logout": "/auth/logout",
+}
+
+var RulesAuth = []aroutes.Rule{
+	{Path: authPaths["login"], Method: http.MethodGet, Status: false},
+	{Path: authPaths["logout"], Method: http.MethodGet, Status: false},
+}
+
+func InitRoutersAuth(app *iris.Application) {
+	_, group := InitRouter(app, "/auth")
+	ctl := auth.NewAuthController()
+	group.Post("/login", ctl.Login)
+	group.Get("/logout", ctl.Logout)
+}

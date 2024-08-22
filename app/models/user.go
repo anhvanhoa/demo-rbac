@@ -22,6 +22,21 @@ type User struct {
 	Roles    []int  `pg:",array" json:"roles"`
 }
 
+type ResponseUser struct {
+	Id       uint       `json:"id"`
+	Username string     `json:"username"`
+	Email    string     `json:"email"`
+	Avatar   string     `json:"avatar"`
+	Roles    []RoleItem `pg:",array" json:"roles"`
+}
+
+type UserAll struct {
+	Id       uint     `json:"id"`
+	Username string   `json:"username"`
+	Email    string   `json:"email"`
+	Roles    []string `pg:",array" json:"roles"`
+}
+
 type Userfor struct {
 	ID       uint   `json:"id"`
 	Username string `json:"username"`

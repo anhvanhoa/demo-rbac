@@ -1,23 +1,22 @@
-package rule
+package single
 
 import (
-	"iris/services"
+	"app/services"
 
 	"github.com/anhvanhoa/lib/rbac"
 	"github.com/anhvanhoa/lib/routes"
 	"github.com/kataras/iris/v12"
 )
 
-func (s *Rule) RefreshRules(ctx iris.Context) {
+func (t *Single) RefreshRules(ctx iris.Context) {
 	routes.LoadRoutes(services.GetRbacRules, routes.AllRouter)
 	ctx.JSON(iris.Map{
-		"message": "Refresh rules successfully",
+		"message": "Refresh rules admin successfully",
 	})
 }
-
-func (s *Rule) RefreshRoles(ctx iris.Context) {
+func (t *Single) RefreshRoles(ctx iris.Context) {
 	rbac.LoadRole(services.GetAllRole)
 	ctx.JSON(iris.Map{
-		"message": "Refresh role successfully",
+		"message": "Refresh role admin successfully",
 	})
 }

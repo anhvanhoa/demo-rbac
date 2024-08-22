@@ -2,9 +2,10 @@ package routes
 
 import (
 	grouptodo "iris/controllers/group-todo"
-	"iris/rbac"
 	"net/http"
 
+	"github.com/anhvanhoa/lib/rbac"
+	"github.com/anhvanhoa/lib/routes"
 	"github.com/kataras/iris/v12"
 )
 
@@ -13,7 +14,7 @@ var todoGroupPaths map[string]string = map[string]string{
 	"todo-group":  "/todo-groups/{id}",
 }
 
-var RulesTodoGroups = []Rule{
+var RulesTodoGroups = []routes.Rule{
 	{
 		Path:   todoGroupPaths["todo-groups"],
 		Method: http.MethodGet,

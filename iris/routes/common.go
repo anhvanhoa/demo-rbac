@@ -2,9 +2,10 @@ package routes
 
 import (
 	"iris/models"
-	"iris/rbac"
 	"log"
 
+	"github.com/anhvanhoa/lib/rbac"
+	aroutes "github.com/anhvanhoa/lib/routes"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/core/router"
 )
@@ -14,16 +15,8 @@ type Router struct {
 	Api  *iris.Application
 }
 
-type Rule struct {
-	Path   string
-	Method string
-	Status bool
-	Auth   rbac.AuthFunc
-	Roles  []int
-}
-
-func ConvertRuleFormDb(ruleDb []models.RbacRule) []Rule {
-	var rules []Rule
+func ConvertRuleFormDb(ruleDb []models.RbacRule) []aroutes.Rule {
+	var rules []aroutes.Rule
 	for _, rule := range ruleDb {
 		var auth rbac.AuthFunc
 		switch rule.AuthType {
@@ -44,7 +37,7 @@ func ConvertRuleFormDb(ruleDb []models.RbacRule) []Rule {
 		// Add rule to rules
 		rules = append(
 			rules,
-			Rule{
+			aroutes.Rule{
 				Path:   rule.Path,
 				Method: rule.Method,
 				Auth:   auth,

@@ -13,13 +13,12 @@ func CheckAuth(ctx iris.Context) {
 		"header": tmpl.HeaderData,
 	}
 	id := ctx.GetCookie("id")
-	_, err := services.GetInforUser(id)
+	user, err := services.GetInforUser(id)
 	if err != nil {
 		data["isLogin"] = false
-		fmt.Println("CheckAuth: ", "false")
 	} else {
-		data["isLogin"] = "true"
-		fmt.Println("CheckAuth: ", true)
+		data["isLogin"] = user
+		fmt.Println(user.Username)
 	}
 	ctx.ViewData("header", data)
 	ctx.Next()

@@ -4,20 +4,32 @@
             Thông tin cá nhân
         </h3>
     </div>
-    <div class="mt-6 border-t border-gray-100">
+    <div class="text-lg mt-6 border-t border-gray-100">
         <dl class="divide-y divide-gray-100">
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="text-sm font-medium leading-6 text-gray-900">Username</dt>
-                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                <dt class=" font-medium leading-6 text-gray-900">Username</dt>
+                <dd class="mt-1  leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                     {{.user.Username}}
                 </dd>
             </div>
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="text-sm font-medium leading-6 text-gray-900">
+                <dt class=" font-medium leading-6 text-gray-900">
                     Email
                 </dt>
-                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                <dd class="mt-1  leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                     {{.user.Email}}
+                </dd>
+            </div>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class=" font-medium leading-6 text-gray-900">
+                    Roles
+                </dt>
+                <dd class="mt-1 leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    {{ range $_, $name := .roles }}
+                    <span class="bg-sky-100 text-sky-700 mr-2 inline-flex items-center px-2 py-0.5 rounded-full font-medium">
+                        {{$name}}  
+                    </span>
+                    {{end}}
                 </dd>
             </div>
         </dl>

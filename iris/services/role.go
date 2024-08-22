@@ -1,14 +1,13 @@
 package services
 
 import (
-	"iris/models"
-
 	"github.com/TechMaster/core/db"
+	"github.com/anhvanhoa/lib/models"
 )
 
-func GetAllRole() ([]models.RoleItem, error) {
+func GetAllRole() ([]models.Role, error) {
 	var query = "SELECT * FROM roles"
-	var roles []models.RoleItem
+	var roles []models.Role		
 	if _, err := db.DB.Query(&roles, query); err != nil {
 		return roles, err
 	}

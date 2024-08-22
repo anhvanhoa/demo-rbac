@@ -6,6 +6,7 @@ type Rule struct{}
 
 type InterfaceRule interface {
 	RefreshRules(ctx iris.Context)
+	RefreshRoles(ctx iris.Context)
 }
 
 func NewRuleController() InterfaceRule {

@@ -4,7 +4,7 @@ import (
 	"app/controllers/auth"
 	"net/http"
 
-	aroutes "github.com/anhvanhoa/lib/routes"
+	"github.com/anhvanhoa/lib/routes"
 	"github.com/kataras/iris/v12"
 )
 
@@ -13,7 +13,7 @@ var authPaths map[string]string = map[string]string{
 	"logout": "/auth/logout",
 }
 
-var RulesAuth = []aroutes.Rule{
+var RulesAuth = []routes.Rule{
 	{Path: authPaths["login"], Method: http.MethodGet, Status: false},
 	{Path: authPaths["logout"], Method: http.MethodGet, Status: false},
 }

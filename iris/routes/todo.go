@@ -2,9 +2,10 @@ package routes
 
 import (
 	"iris/controllers/todo"
-	"iris/rbac"
 	"net/http"
 
+	"github.com/anhvanhoa/lib/rbac"
+	"github.com/anhvanhoa/lib/routes"
 	"github.com/kataras/iris/v12"
 )
 
@@ -13,7 +14,7 @@ var todoPaths map[string]string = map[string]string{
 	"todo":  "/todos/{id}",
 }
 
-var RulesTodo = []Rule{
+var RulesTodo = []routes.Rule{
 	{
 		Path:   todoPaths["todos"],
 		Method: http.MethodGet,
